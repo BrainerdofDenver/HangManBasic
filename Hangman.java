@@ -45,12 +45,18 @@ public class Hangman implements HangmanManager{
 //_____________Private Methods
 	private Set<String> dictionaryFilter(ListIterator<String> word, int lngth){
 		Set<String> wordSet = new HashSet<String>();
-		
+		while(word.hasNext()){
+			String checkWord = word.next();
+			if(checkWord.length() == lngth){
+				wordSet.add(checkWord);
+			}
+		}
 		return wordSet;
 	}
 	private String patternBuilder(){
 		String returnPattern;
 		return returnPattern;
 	}
+//_____________Nested Classes
 	
 }
