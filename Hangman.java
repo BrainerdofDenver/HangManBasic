@@ -1,7 +1,9 @@
 package hangmangamebasic;
 
 import java.util.SortedSet;
+import java.util.HashSet;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.Set;
 
 public class Hangman implements HangmanManager{
@@ -16,8 +18,9 @@ public class Hangman implements HangmanManager{
 	public Hangman(final List<String> dictionary,
 					final int length,
 					final int wrongGuessLimit){
-		//logic to filter dictionary into Set of candidate words based on
-		//length.
+		ListIterator<String> it = dictionary.listIterator();
+		candidateWords = dictionaryFilter(it,length);
+		guessLimit = wrongGuessLimit;
 		
 	}
 //_____________API Specific Methods
@@ -40,9 +43,10 @@ public class Hangman implements HangmanManager{
 		return guessLimit;
 	}
 //_____________Private Methods
-	private Set<String> dictionaryFilter(List<String> wordList){
+	private Set<String> dictionaryFilter(ListIterator<String> word, int lngth){
+		Set<String> wordSet = new HashSet<String>();
 		
-		return null;
+		return wordSet;
 	}
 	private String patternBuilder(){
 		String returnPattern;
